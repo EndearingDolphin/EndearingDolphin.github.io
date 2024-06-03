@@ -1,10 +1,13 @@
 /*
     Name: Justin Fifarek
-    Project: Appointment main.cpp file
+    Project: main.cpp file
 */
 #include ".\Contact\Contact.cpp"
+#include ".\Contact\ContactService.cpp"
 #include ".\Task\Task.cpp"
+#include ".\Task\TaskService.cpp"
 #include ".\Appointment\Appointment.cpp"
+#include ".\Appointment\AppointmentService.cpp"
 #include <iostream>
 #include <string>
 
