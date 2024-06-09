@@ -2,14 +2,12 @@
     Name: Justin Fifarek
     Project: main.cpp file
 */
-#include ".\Contact\Contact.cpp"
-#include ".\Contact\ContactService.cpp"
-#include ".\Task\Task.cpp"
-#include ".\Task\TaskService.cpp"
-#include ".\Appointment\Appointment.cpp"
-#include ".\Appointment\AppointmentService.cpp"
+
 #include <iostream>
 #include <string>
+
+#include "common.h"
+
 
 void displayMenu() {
     std::cout << "Main menu: " << std::endl;
@@ -20,6 +18,7 @@ void displayMenu() {
 }
 
 void processMenu(int option) {
+    std::string user_input;
     switch(option) {
         default:
             std::cout << "Invalid option, please try again." << std::endl;
