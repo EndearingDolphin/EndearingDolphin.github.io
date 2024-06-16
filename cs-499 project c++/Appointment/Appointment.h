@@ -1,3 +1,8 @@
+/*
+    Name: Justin Fifarek
+    Project: Appointment management app
+    Module: Appointment header
+*/
 #pragma once
 
 #include <iostream>

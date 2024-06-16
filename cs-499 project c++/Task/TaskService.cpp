@@ -1,6 +1,7 @@
 /*
     Name: Justin Fifarek
-    Project: TaskService class
+    Project: Appointment management app
+    Module: TaskService class file
 */
 #include <iostream>
 #include <vector>

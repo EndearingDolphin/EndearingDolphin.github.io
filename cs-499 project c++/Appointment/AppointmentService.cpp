@@ -1,6 +1,7 @@
 /*
     Name: Justin Fifarek
-    Project: AppointmentService class
+    Project: Appointment management app
+    Module: AppointmentService class file
 */
 #include <iostream>
 #include <vector>

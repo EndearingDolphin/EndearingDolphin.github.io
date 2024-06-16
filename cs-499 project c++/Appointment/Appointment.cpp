@@ -1,6 +1,7 @@
 /*
     Name: Justin Fifarek
-    Project: Appointment class
+    Project: Appointment management app
+    Module: Appointment class file
 */
 #include <iostream>
 #include <string>

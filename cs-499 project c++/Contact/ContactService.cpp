@@ -1,6 +1,7 @@
 /*
     Name: Justin Fifarek
-    Project: ContactService class
+    Project: Appointment management app
+    Module: ContactService class file
 */
 #include <atomic>
 #include <vector>
