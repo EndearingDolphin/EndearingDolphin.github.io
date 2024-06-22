@@ -48,13 +48,13 @@ Contact::Contact(std::string firstName, std::string lastName, std::string phone,
         this->phone = phone;
     }
     
-    // address cannot be more than 10 characters
+    // address cannot be more than 30 characters
     // and cannot be null
     if (address.empty()) {
         this->address = "NULL";
     }
-    else if (address.length() > 10) {
-        this->address = address.substr(0, 10);
+    else if (address.length() > 30) {
+        this->address = address.substr(0, 30);
     }
     else {
         this->address = address;
