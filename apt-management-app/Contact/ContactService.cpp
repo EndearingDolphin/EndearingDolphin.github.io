@@ -37,7 +37,7 @@ Contact ContactService::getContact(std::string contactID) {
             return contactList[i];
         }
     }
-    return Contact("", "", "", "");
+    std::cout << "Contact ID: " << contactID << " not found." << std::endl;
 }
 
 // Searches through contactList vector and deletes the contact
@@ -49,6 +49,7 @@ void ContactService::deleteContact(std::string contactID) {
             return;
         }
     }
+    std::cout << "Contact ID: " << contactID << " not found." << std::endl;
 }
 
 // Searches through contactList vector and updates the firstName

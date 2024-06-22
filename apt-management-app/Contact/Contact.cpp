@@ -47,7 +47,9 @@ Contact::Contact(std::string firstName, std::string lastName, std::string phone,
     else {
         this->phone = phone;
     }
-
+    
+    // address cannot be more than 10 characters
+    // and cannot be null
     if (address.empty()) {
         this->address = "NULL";
     }
