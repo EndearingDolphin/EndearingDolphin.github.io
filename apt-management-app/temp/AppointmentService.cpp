@@ -7,7 +7,8 @@
 #include <vector>
 #include <string>
 #include <ctime>
-#include "AppointmentService.h"
+
+#include "../includes/AppointmentService.h"
 
 // Display all appointments in the list
 void AppointmentService::displayApptList() {
@@ -34,8 +35,8 @@ Appointment AppointmentService::getAppointment(std::string appointmentID) {
             return appointmentList[i];
         }
     }
-    // FIXME: Fix returning a default/empty appointment object
-    //return Appointment();
+    std::time_t now = std::time(nullptr);
+    return Appointment(now, "");
 }
 
 // Loops through appointmentList for given appointmentID 

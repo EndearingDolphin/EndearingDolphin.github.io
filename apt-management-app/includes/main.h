@@ -7,14 +7,14 @@
 #pragma once
 
 // Includes for each module
-#include ".\Contact\Contact.h"
-#include ".\Contact\ContactService.h"
+#include "Contact.h"
+#include "ContactService.h"
 
-#include ".\Task\Task.h"
-#include ".\Task\TaskService.h"
-
-#include ".\Appointment\Appointment.h"
-#include ".\Appointment\AppointmentService.h"
+//#include "Task.h"
+//#include "TaskService.h"
+//
+//#include "Appointment.h"
+//#include "AppointmentService.h"
 
 // Main functions declaration
 void displayMenu();
@@ -23,3 +23,6 @@ void contactsMenu();
 void tasksMenu();
 void appointmentsMenu();
 int main();
+
+// Class initializations
+ContactService contactService;

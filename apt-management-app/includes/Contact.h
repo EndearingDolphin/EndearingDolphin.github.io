@@ -15,9 +15,10 @@ private:
     std::string lastName;
     std::string phone;
     std::string address;
-    static std::atomic<long> idGenerator;
+    static unsigned int contact_nextID;
 
 public:
+    // Constructor
     Contact(std::string firstName, std::string lastName, std::string phone, std::string address);
 
     // Getters
@@ -33,3 +34,4 @@ public:
     void setPhone(std::string phone);
     void setAddress(std::string address);
 };
+unsigned int Contact::contact_nextID = 0;

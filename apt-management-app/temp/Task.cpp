@@ -6,12 +6,13 @@
 #include <iostream>
 #include <string>
 #include <atomic>
-#include "Task.h"
+
+#include "../includes/Task.h"
 
 // Constructor
 Task::Task(std::string taskName, std::string taskDesc) {
     // TaskID is generated when constructor is called
-    this->taskID = std::to_string(idGenerator++);
+    this->taskID = ++nextID;
 
     // taskName cannot be more than 20 characters
     // and cannot be empty

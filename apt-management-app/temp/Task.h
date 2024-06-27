@@ -14,7 +14,7 @@ private:
     std::string taskID;
     std::string taskName;
     std::string taskDesc;
-    static std::atomic<long> idGenerator;
+    static unsigned int nextID;
 
 public:
     Task(std::string taskName, std::string taskDesc);
@@ -28,3 +28,6 @@ public:
     void setTaskName(std::string taskName);
     void setTaskDesc(std::string taskDesc);
 };
+
+// Initialize first ID number
+unsigned int Task::nextID = 0;

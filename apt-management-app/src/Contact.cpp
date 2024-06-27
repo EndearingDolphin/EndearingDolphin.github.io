@@ -5,12 +5,11 @@
 */
 #include <iostream>
 #include <string>
-#include <atomic>
 
-#include "Contact.h"
+#include "../includes/Contact.h"
 
 Contact::Contact(std::string firstName, std::string lastName, std::string phone, std::string address) {
-    this->contactID = std::to_string(idGenerator++);
+    this->contactID = ++contact_nextID;
 
     // firstName cannot be more than 10 characters
     // and cannot be null

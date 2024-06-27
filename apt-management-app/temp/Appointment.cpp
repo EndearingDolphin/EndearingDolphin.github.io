@@ -7,11 +7,12 @@
 #include <string>
 #include <atomic>
 #include <ctime>
-#include "Appointment.h"
+
+#include "../includes/Appointment.h"
 
 Appointment::Appointment(std::time_t appointmentDate, std::string appointmentDesc) {
     // appointmentID is generated when constructor is called
-    this->appointmentID = std::to_string(idGenerator++);
+    this->appointmentID = ++nextID;
 
     // appointmentDate cannot be before the current date
     std::time_t now = std::time(nullptr);

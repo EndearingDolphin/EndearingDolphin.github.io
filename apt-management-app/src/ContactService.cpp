@@ -5,18 +5,18 @@
 */
 #include <atomic>
 #include <vector>
-#include "Contact.h"
-#include "ContactService.h"
+
+#include "../includes/ContactService.h"
 
 // Display list of stored contacts
 void ContactService::displayContacts() {
-    for (size_t i = 0; i < contactList.size(); ++i) {
-        std::cout << " Contact ID: " << contactList[i].getContactID() << std::endl;
-        std::cout << " First Name: " << contactList[i].getFirstName() << std::endl;
-        std::cout << " Last Name: " << contactList[i].getLastName() << std::endl;
-        std::cout << " Phone Number: " << contactList[i].getPhone() << std::endl;
-        std::cout << " Address: " << contactList[i].getAddress() << std::endl;
-        for (size_t x = 0; x < contactList[i].getAddress().length() + 9; ++x) {
+    for (auto contact : contactList) {
+        std::cout << " Contact ID: " << contact.getContactID() << std::endl;
+        std::cout << " First Name: " << contact.getFirstName() << std::endl;
+        std::cout << " Last Name: " << contact.getLastName() << std::endl;
+        std::cout << " Phone Number: " << contact.getPhone() << std::endl;
+        std::cout << " Address: " << contact.getAddress() << std::endl;
+        for (size_t x = 0; x < contact.getAddress().length() + 9; ++x) {
             std::cout << "-";
         }
         std::cout << std::endl;
@@ -37,7 +37,7 @@ Contact ContactService::getContact(std::string contactID) {
             return contactList[i];
         }
     }
-    std::cout << "Contact ID: " << contactID << " not found." << std::endl;
+    return Contact("", "", "", "");
 }
 
 // Searches through contactList vector and deletes the contact
