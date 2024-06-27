@@ -10,6 +10,9 @@
 
 #include "../includes/Appointment.h"
 
+// Initialize first ID number
+unsigned int Appointment::nextID = 0;
+
 Appointment::Appointment(std::time_t appointmentDate, std::string appointmentDesc) {
     // appointmentID is generated when constructor is called
     this->appointmentID = ++nextID;

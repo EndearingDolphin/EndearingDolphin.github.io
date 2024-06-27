@@ -7,7 +7,6 @@
 
 #include <iostream>
 #include <string>
-#include <atomic>
 #include <ctime>
 
 class Appointment {
@@ -27,6 +26,3 @@ public:
     void setAppointmentDate(std::time_t appointmentDate);
     void setAppointmentDesc(const std::string& appointmentDesc);
 };
-
-// Initialize first ID number
-unsigned int Appointment::nextID = 0;

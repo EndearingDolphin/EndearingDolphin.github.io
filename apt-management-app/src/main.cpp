@@ -45,6 +45,7 @@ void contactsMenu() {
     std::cout << "  4. Delete a contact" << std::endl;
     std::cout << "  9. Back to main menu" << std::endl;
     int option = 0;
+    std::string firstname = "", lastname = "", phone = "", address = "";
     while (option != 9) {
         std::cout << "Enter menu choice (1-4, 9): ";
         std::cin >> option;
@@ -54,7 +55,18 @@ void contactsMenu() {
                 contactService.displayContacts();
                 break;
             case 2:
-                std::cout << "Add a contact option" << std::endl;
+                while (true) {
+                    std::cout << "Please enter first name (cannot be longer than 10 chars): " << std::endl;
+                    std::getline(std::cin, firstname);
+                    std::cout << "Please enter last name (cannot be longer than 10 chars): " << std::endl;
+                    std::getline(std::cin, lastname);
+                    std::cout << "Please enter phone (must be exactly 10 digits): " << std::endl;
+                    std::getline(std::cin, phone);
+                    std::cout << "Please enter address (cannot be longer than 30 chars): " << std::endl;
+                    std::getline(std::cin, address);
+                    contactService.addContact(firstname, lastname, phone, address);
+                    break;
+                }
                 break;
             case 3:
                 std::cout << "Edit a contact option" << std::endl;

@@ -8,8 +8,10 @@
 
 #include "../includes/Contact.h"
 
+unsigned int Contact::nextID = 0;
+
 Contact::Contact(std::string firstName, std::string lastName, std::string phone, std::string address) {
-    this->contactID = ++contact_nextID;
+    this->contactID = ++nextID;
 
     // firstName cannot be more than 10 characters
     // and cannot be null

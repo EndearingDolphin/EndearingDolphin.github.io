@@ -9,6 +9,9 @@
 
 #include "../includes/Task.h"
 
+// Initialize first ID number
+unsigned int Task::nextID = 0;
+
 // Constructor
 Task::Task(std::string taskName, std::string taskDesc) {
     // TaskID is generated when constructor is called

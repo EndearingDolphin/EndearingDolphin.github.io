@@ -7,7 +7,6 @@
 
 #include <iostream>
 #include <string>
-#include <atomic>
 
 class Task {
 private:
@@ -28,6 +27,3 @@ public:
     void setTaskName(std::string taskName);
     void setTaskDesc(std::string taskDesc);
 };
-
-// Initialize first ID number
-unsigned int Task::nextID = 0;

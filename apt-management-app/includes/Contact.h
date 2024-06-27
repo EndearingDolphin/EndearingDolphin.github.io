@@ -6,7 +6,6 @@
 #pragma once
 
 #include <string>
-#include <atomic>
 
 class Contact {
 private:
@@ -15,7 +14,7 @@ private:
     std::string lastName;
     std::string phone;
     std::string address;
-    static unsigned int contact_nextID;
+    static unsigned int nextID;
 
 public:
     // Constructor
@@ -34,4 +33,3 @@ public:
     void setPhone(std::string phone);
     void setAddress(std::string address);
 };
-unsigned int Contact::contact_nextID = 0;
