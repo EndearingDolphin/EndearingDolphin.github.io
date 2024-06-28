@@ -9,7 +9,7 @@
 
 class Contact {
 private:
-    std::string contactID;
+    unsigned int contactID;
     std::string firstName;
     std::string lastName;
     std::string phone;
@@ -21,7 +21,7 @@ public:
     Contact(std::string firstName, std::string lastName, std::string phone, std::string address);
 
     // Getters
-    std::string getContactID();
+    unsigned int getContactID();
     std::string getFirstName();
     std::string getLastName();
     std::string getPhone();

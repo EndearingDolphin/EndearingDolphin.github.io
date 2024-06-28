@@ -10,11 +10,11 @@
 #include "Contact.h"
 #include "ContactService.h"
 
-//#include "Task.h"
-//#include "TaskService.h"
-//
-//#include "Appointment.h"
-//#include "AppointmentService.h"
+#include "Task.h"
+#include "TaskService.h"
+
+#include "Appointment.h"
+#include "AppointmentService.h"
 
 // Main functions declaration
 void displayMenu();
@@ -26,3 +26,5 @@ int main();
 
 // Class initializations
 ContactService contactService;
+TaskService taskService;
+AppointmentService appointmentService;
