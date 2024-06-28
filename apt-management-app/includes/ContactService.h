@@ -15,11 +15,12 @@ private:
 
 public:
     void displayContacts();
+    bool displayOneContact(unsigned int contactID);
     void addContact(std::string firstName, std::string lastName, std::string phone, std::string address);
-    Contact getContact(std::string contactID);
-    void deleteContact(std::string contactID);
-    void updateFirstName(std::string updatedString, std::string contactID);
-    void updateLastName(std::string updatedString, std::string contactID);
-    void updatePhone(std::string updatedString, std::string contactID);
-    void updateAddress(std::string updatedString, std::string contactID);
+    Contact getContact(unsigned int contactID);
+    void deleteContact(unsigned int contactID);
+    void updateFirstName(std::string updatedString, unsigned int contactID);
+    void updateLastName(std::string updatedString, unsigned int contactID);
+    void updatePhone(std::string updatedString, unsigned int contactID);
+    void updateAddress(std::string updatedString, unsigned int contactID);
 };

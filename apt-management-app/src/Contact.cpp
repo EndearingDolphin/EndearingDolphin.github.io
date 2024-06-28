@@ -8,6 +8,7 @@
 
 #include "../includes/Contact.h"
 
+// nextID initialization
 unsigned int Contact::nextID = 0;
 
 Contact::Contact(std::string firstName, std::string lastName, std::string phone, std::string address) {
@@ -39,7 +40,7 @@ Contact::Contact(std::string firstName, std::string lastName, std::string phone,
 
     // phone must be exactly 10 digits
     // and cannot be null
-    if (phone.empty()) {
+    if (phone.empty() or phone.length() < 10) {
         this->phone = "1234567890";
     }
     else if (phone.length() > 10) {
@@ -63,7 +64,7 @@ Contact::Contact(std::string firstName, std::string lastName, std::string phone,
 }
 
 // Getters
-std::string Contact::getContactID() {
+unsigned int Contact::getContactID() {
     return this->contactID;
 }
 std::string Contact::getFirstName() {
