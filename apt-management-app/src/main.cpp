@@ -105,7 +105,7 @@ void contactsMenu() {
             contactService.addContact(firstname, lastname, phone, address);
         }
         else if (option == 4) {
-            option = 0;
+            option2 = 0;
             std::cout << "Enter ID to edit: " << std::endl;
             std::cin >> id;
             while (true) {
@@ -244,8 +244,8 @@ void tasksMenu() {
 }
 
 void appointmentsMenu() {
-    unsigned int option = 0, id = 0;
-    std::string taskname = "", taskdesc = "";
+    unsigned int option = 0, option2 = 0, id = 0;
+    std::string appointmentdate = "", appointmentdesc = "";
     displayMenu("appointments");
     while (true) {
         option = 0;
@@ -255,18 +255,59 @@ void appointmentsMenu() {
             appointmentService.displayAppointments();
         }
         else if (option == 2) {
-            //std::cout << "Enter ID to find: " << std::endl;
-            //std::cin >> id;
-            //appointmentService.displayOneAppointment(id);
+            std::cout << "Enter ID to find: " << std::endl;
+            std::cin >> id;
+            appointmentService.displayOneAppointment(id);
         }
         else if (option == 3) {
-            std::cout << "Add an appointment option" << std::endl;
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "Please  enter a date in YYYY-MM-DD HH:MM:SS format: " << std::endl;
+            std::getline(std::cin, appointmentdate);
+            std::cout << "Please enter description (cannot be more than 50 characters)" << std::endl;
+            std::getline(std::cin, appointmentdesc);
+            appointmentService.addAppointment(appointmentdate, appointmentdesc);
+
         }
         else if (option == 4) {
-            std::cout << "Edit an appointment option" << std::endl;
+            option2 = 0;
+            std::cout << "Enter ID to edit: " << std::endl;
+            std::cin >> id;
+            while (true) {
+                if (!appointmentService.displayOneAppointment(id)) {
+                    break;
+                }
+                std::cout << "Please select what you want to edit: " << std::endl;
+                std::cout << " 1. Appointment date" << std::endl;
+                std::cout << " 2. Appointment description" << std::endl;
+                std::cout << " 9. Go back" << std::endl;
+                std::cin >> option2;
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                if (option2 == 1) {
+                    std::cout << "Please enter a new date in YYYY-MM-DD HH:MM:SS format" << std::endl;
+                    std::getline(std::cin, appointmentdate);
+                    appointmentService.updateAppointmentDate(appointmentdate, id);
+                }
+                else if (option2 == 2) {
+                    std::cout << "Please enter a new description (cannot be more than 50 chars)" << std::endl;
+                    std::getline(std::cin, appointmentdesc);
+                    appointmentService.updateAppointmentDesc(appointmentdesc, id);
+                }
+                else if (option2 == 9) {
+                    appointmentsMenu();
+                }
+                else {
+                    std::cout << "Invalid option, please try again." << std::endl;
+                    std::cin.clear();
+                    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                }
+            }
         }
         else if (option == 5) {
-            std::cout << "Delete an appointment option" << std::endl;
+            std::cout << "Please enter the appointmentID to be deleted: " << std::endl;
+            std::cin >> id;
+            appointmentService.deleteAppointment(id);
         }
         else if (option == 9) {
             break;
@@ -286,21 +327,17 @@ int main() {
     contactService.addContact("AAAA", "A", "1111111111", "Ramona Road");
     contactService.addContact("BBBB", "B", "2222222222", "Ramona Road");
     contactService.addContact("CCCC", "C", "3333333333", "Ramona Road");
-    contactService.addContact("DDDD", "D", "4444444444", "Ramona Road");
-    contactService.addContact("EEEE", "E", "5555555555", "Ramona Road");
-    contactService.addContact("FFFF", "F", "6666666666", "Ramona Road");
 
     // Tasks for testing
     taskService.addTask("Task name 1", "Task description 1");
     taskService.addTask("Task name 2", "Task description 2");
     taskService.addTask("Task name 3", "Task description 3");
-    taskService.addTask("Task name 4", "Task description 4");
-    taskService.addTask("Task name 5", "Task description 5");
-    taskService.addTask("Task name 6", "Task description 6");
-    taskService.addTask("Task name 7", "Task description 7");
-    taskService.addTask("Task name 8", "Task description 8");
-    taskService.addTask("Task name 9", "Task description 9");
-    taskService.addTask("Task name 10", "Task description 10");
+
+    // Appointments for testing
+    appointmentService.addAppointment("2025-01-05 12:09:09", "Appointment desc 1");
+    appointmentService.addAppointment("2025-02-10 12:19:19", "Appointment desc 2");
+    appointmentService.addAppointment("2025-03-15 12:29:29", "Appointment desc 3");
+    
 
     int option = 0;
     while (true) {
