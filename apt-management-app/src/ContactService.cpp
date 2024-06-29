@@ -11,7 +11,7 @@
 // Display list of stored contacts
 void ContactService::displayContacts() {
     for (auto contact : contactList) {
-        std::cout << " Contact ID: " << contact.getContactID() << std::endl;
+        std::cout << "Contact ID: " << contact.getContactID() << std::endl;
         std::cout << " First Name: " << contact.getFirstName() << std::endl;
         std::cout << " Last Name: " << contact.getLastName() << std::endl;
         std::cout << " Phone Number: " << contact.getPhone() << std::endl;
@@ -27,7 +27,7 @@ void ContactService::displayContacts() {
 bool ContactService::displayOneContact(unsigned int contactID) {
     for (auto contact : contactList) {
         if (contact.getContactID() == contactID) {
-            std::cout << " Contact ID: " << contact.getContactID() << std::endl;
+            std::cout << "Contact ID: " << contact.getContactID() << std::endl;
             std::cout << " First Name: " << contact.getFirstName() << std::endl;
             std::cout << " Last Name: " << contact.getLastName() << std::endl;
             std::cout << " Phone Number: " << contact.getPhone() << std::endl;

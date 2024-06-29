@@ -10,7 +10,7 @@
 
 class Task {
 private:
-    std::string taskID;
+    unsigned int taskID;
     std::string taskName;
     std::string taskDesc;
     static unsigned int nextID;
@@ -19,7 +19,7 @@ public:
     Task(std::string taskName, std::string taskDesc);
 
     // Getters
-    std::string getTaskID();
+    unsigned int getTaskID();
     std::string getTaskName();
     std::string getTaskDesc();
 

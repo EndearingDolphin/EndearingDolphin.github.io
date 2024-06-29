@@ -15,9 +15,10 @@ private:
 
 public:
     void displayTasks();
-    Task getTask(std::string taskID);
+    bool displayOneTask(unsigned int taskID);
+    Task getTask(unsigned int taskID);
     void addTask(std::string taskName, std::string taskDesc);
-    void deleteTask(const std::string& taskID);
-    void updateTaskName(const std::string& newTaskName, const std::string& taskID);
-    void updateTaskDesc(const std::string& newTaskDesc, const std::string& taskID);
+    void deleteTask(unsigned int taskID);
+    void updateTaskName(std::string newTaskName, unsigned int taskID);
+    void updateTaskDesc(std::string newTaskDesc, unsigned int taskID);
 };

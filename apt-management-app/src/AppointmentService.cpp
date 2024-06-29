@@ -11,13 +11,29 @@
 #include "../includes/AppointmentService.h"
 
 // Display all appointments in the list
-void AppointmentService::displayApptList() {
-    std::cout << "ApptService display appt list function reached" << std::endl;
-    for (size_t i = 0; i < appointmentList.size(); ++i) {
-        std::cout << "Appointment ID: " << appointmentList[i].getAppointmentID() << std::endl;
-        std::cout << "Appointment Date: " << appointmentList[i].getAppointmentDate() << std::endl;
-        std::cout << "Appointment Description: " << appointmentList[i].getAppointmentDesc() << std::endl;
+void AppointmentService::displayAppointments() {
+    for (auto appointment : appointmentList) {
+        std::cout << "Appointment ID: " << appointment.getAppointmentID() << std::endl;
+        std::cout << " Appointment Date: " << appointment.getAppointmentDate() << std::endl;
+        std::cout << " Appointment Description: " << appointment.getAppointmentDesc() << std::endl;
     }
+}
+
+// Display given appointmentID from appointmentList
+bool AppointmentService::displayOneAppointment(unsigned int appointmentID) {
+    for (auto appointment : appointmentList) {
+        if (appointment.getAppointmentID() == appointmentID) {
+            std::cout << "Appointment ID: " << appointment.getAppointmentID() << std::endl;
+            std::cout << " Appointment Date: " << appointment.getAppointmentDate() << std::endl;
+            std::cout << " Appointment Description: " << appointment.getAppointmentDesc() << std::endl;
+            for (size_t x = 0; x < appointment.getAppointmentDesc().length(); ++x) {
+                std::cout << "-";
+            }
+            std::cout << std::endl;
+            return true;
+        }
+    }
+    return false;
 }
 
 // Adds new appointment using the appointment constructor
@@ -29,10 +45,10 @@ void AppointmentService::addAppointment(std::time_t appointmentDate, std::string
 
 // Returns an appointment given appointmentID, if it exists. 
 // Otherwise, returns a default appointment
-Appointment AppointmentService::getAppointment(std::string appointmentID) {
-    for (size_t i = 0; i < appointmentList.size(); ++i) {
-        if (appointmentList[i].getAppointmentID() == appointmentID) {
-            return appointmentList[i];
+Appointment AppointmentService::getAppointment(unsigned int appointmentID) {
+    for (auto appointment : appointmentList) {
+        if (appointment.getAppointmentID() == appointmentID) {
+            return appointment;
         }
     }
     std::time_t now = std::time(nullptr);
@@ -41,7 +57,7 @@ Appointment AppointmentService::getAppointment(std::string appointmentID) {
 
 // Loops through appointmentList for given appointmentID 
 // and deletes it if found.
-void AppointmentService::deleteAppointment(const std::string& appointmentID) {
+void AppointmentService::deleteAppointment(unsigned int appointmentID) {
     for (auto it = appointmentList.begin(); it != appointmentList.end(); ++it) {
         if (it->getAppointmentID() == appointmentID) {
             appointmentList.erase(it);
@@ -52,10 +68,10 @@ void AppointmentService::deleteAppointment(const std::string& appointmentID) {
 }
 
 // Updates appointmentDate of appointmentID given a newDate
-void AppointmentService::updateAppointmentDate(std::time_t newDate, std::string appointmentID) {
-    for (size_t i = 0; i < appointmentList.size(); ++i) {
-        if (appointmentList[i].getAppointmentID() == appointmentID) {
-            appointmentList[i].setAppointmentDate(newDate);
+void AppointmentService::updateAppointmentDate(std::time_t newDate, unsigned int appointmentID) {
+    for (auto appointment : appointmentList) {
+        if (appointment.getAppointmentID() == appointmentID) {
+            appointment.setAppointmentDate(newDate);
             return;
         }
     }
@@ -63,10 +79,10 @@ void AppointmentService::updateAppointmentDate(std::time_t newDate, std::string 
 }
 
 // Updates appointmentDesc of given appointmentID
-void AppointmentService::updateAppointmentDesc(std::string newDesc, std::string appointmentID) {
-    for (size_t i = 0; i < appointmentList.size(); ++i) {
-        if (appointmentList[i].getAppointmentID() == appointmentID) {
-            appointmentList[i].setAppointmentDesc(newDesc);
+void AppointmentService::updateAppointmentDesc(std::string newDesc, unsigned int appointmentID) {
+    for (auto appointment : appointmentList) {
+        if (appointment.getAppointmentID() == appointmentID) {
+            appointment.setAppointmentDesc(newDesc);
             return;
         }
     }
