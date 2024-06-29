@@ -8,17 +8,40 @@
 
 #include "../includes/TaskService.h"
 
+// Display all tasks within task list
 void TaskService::displayTasks() {
-    for (size_t i = 0; i < taskList.size(); ++i) {
-        std::cout << "Task ID:  " << taskList[i].getTaskID() << std::endl;
-        std::cout << "Task Name: " << taskList[i].getTaskName() << std::endl;
-        std::cout << "Task Description: " << taskList[i].getTaskDesc() << std::endl;
+    for (auto task : taskList) {
+        std::cout << "Task ID: " << task.getTaskID() << std::endl;
+        std::cout << " Task Name: " << task.getTaskName() << std::endl;
+        std::cout << " Task Description: " << task.getTaskDesc() << std::endl;
+        for (size_t x = 0; x < task.getTaskDesc().length(); ++x) {
+            std::cout << "-";
+        }
+        std::cout << std::endl;
     }
+}
+
+// Display given taskID from taskList
+bool TaskService::displayOneTask(unsigned int taskID) {
+    for (auto task : taskList) {
+        if (task.getTaskID() == taskID) {
+            std::cout << " Task ID: " << task.getTaskID() << std::endl;
+            std::cout << " Task Name: " << task.getTaskName() << std::endl;
+            std::cout << " Task Description: " << task.getTaskDesc() << std::endl;
+            for (size_t x = 0; x < task.getTaskDesc().length(); ++x) {
+                std::cout << "-";
+            }
+            std::cout << std::endl;
+            return true;
+        }
+    }
+    std::cout << "Task ID: " << taskID << " not found." << std::endl;
+    return false;
 }
 
 // Searches through taskList vector and returns the task
 // of given taskID, if it exists.
-Task TaskService::getTask(std::string taskID) {
+Task TaskService::getTask(unsigned int taskID) {
     for (size_t i = 0; i < taskList.size(); ++i) {
         if (taskList[i].getTaskID() == taskID) {
             return taskList[i];
@@ -34,7 +57,7 @@ void TaskService::addTask(std::string taskName, std::string taskDesc) {
 }
 
 // Delete task given a taskID
-void TaskService::deleteTask(const std::string& taskID) {
+void TaskService::deleteTask(unsigned int taskID) {
     for (auto it = taskList.begin(); it != taskList.end(); ++it) {
         if (it->getTaskID() == taskID) {
             taskList.erase(it);
@@ -46,7 +69,7 @@ void TaskService::deleteTask(const std::string& taskID) {
 
 // Searches through taskList vector and updates taskName
 // of given taskID, if it exists.
-void TaskService::updateTaskName(const std::string& newTaskName, const std::string& taskID) {
+void TaskService::updateTaskName(std::string newTaskName, unsigned int taskID) {
     for (auto& task : taskList) {
         if (task.getTaskID() == taskID) {
             task.setTaskName(newTaskName);
@@ -58,7 +81,7 @@ void TaskService::updateTaskName(const std::string& newTaskName, const std::stri
 
 // Searches through taskList vector and updates taskDesc
 // of given taskID, if it exists.
-void TaskService::updateTaskDesc(const std::string& newTaskDesc, const std::string& taskID) {
+void TaskService::updateTaskDesc(std::string newTaskDesc, unsigned int taskID) {
     for (auto& task : taskList) {
         if (task.getTaskID() == taskID) {
             task.setTaskDesc(newTaskDesc);

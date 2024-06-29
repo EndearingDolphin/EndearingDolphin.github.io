@@ -38,16 +38,16 @@ Appointment::Appointment(std::time_t appointmentDate, std::string appointmentDes
 }
 
 // Getters
-std::string Appointment::getAppointmentID() {
-    return appointmentID;
+unsigned int Appointment::getAppointmentID() {
+    return this->appointmentID;
 }
 
 std::time_t Appointment::getAppointmentDate() {
-    return appointmentDate;
+    return this->appointmentDate;
 }
 
 std::string Appointment::getAppointmentDesc() {
-    return appointmentDesc;
+    return this->appointmentDesc;
 }
 
 // Setters

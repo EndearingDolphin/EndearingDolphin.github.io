@@ -39,16 +39,16 @@ Task::Task(std::string taskName, std::string taskDesc) {
 }
 
 // Getters
-std::string Task::getTaskID() {
-    return taskID;
+unsigned int Task::getTaskID() {
+    return this->taskID;
 }
 
 std::string Task::getTaskName() {
-    return taskName;
+    return this->taskName;
 }
 
 std::string Task::getTaskDesc() {
-    return taskDesc;
+    return this->taskDesc;
 }
 
 // Setters

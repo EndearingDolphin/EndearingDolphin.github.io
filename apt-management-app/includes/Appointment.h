@@ -11,7 +11,7 @@
 
 class Appointment {
 private:
-    std::string appointmentID;
+    unsigned int appointmentID;
     std::time_t appointmentDate;
     std::string appointmentDesc;
     static unsigned int nextID;
@@ -20,7 +20,7 @@ public:
     Appointment(std::time_t appointmentDate, std::string appointmentDesc);
 
     // Getters
-    std::string getAppointmentID();
+    unsigned int getAppointmentID();
     std::time_t getAppointmentDate();
     std::string getAppointmentDesc();
     void setAppointmentDate(std::time_t appointmentDate);

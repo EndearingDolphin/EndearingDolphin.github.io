@@ -17,8 +17,8 @@
 #include "AppointmentService.h"
 
 // Main functions declaration
-void displayMenu();
-void processMenu(int option);
+void displayMenu(std::string menu);
+void processMenu(unsigned int option);
 void contactsMenu();
 void tasksMenu();
 void appointmentsMenu();
