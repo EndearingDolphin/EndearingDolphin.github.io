@@ -1,4 +1,2 @@
-
-*.exe
-
+.vscode/
 time_testing.cpp
