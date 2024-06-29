@@ -3,10 +3,6 @@
     Project: Appointment management app
     Module: AppointmentService class file
 */
-#include <iostream>
-#include <vector>
-#include <string>
-#include <ctime>
 
 #include "../includes/AppointmentService.h"
 
@@ -37,7 +33,7 @@ bool AppointmentService::displayOneAppointment(unsigned int appointmentID) {
 }
 
 // Adds new appointment using the appointment constructor
-void AppointmentService::addAppointment(std::time_t appointmentDate, std::string appointmentDesc) {
+void AppointmentService::addAppointment(std::string appointmentDate, std::string appointmentDesc) {
     // Create the new appointment
     Appointment appointment(appointmentDate, appointmentDesc);
     appointmentList.push_back(appointment);
@@ -51,8 +47,7 @@ Appointment AppointmentService::getAppointment(unsigned int appointmentID) {
             return appointment;
         }
     }
-    std::time_t now = std::time(nullptr);
-    return Appointment(now, "");
+    return Appointment("", "");
 }
 
 // Loops through appointmentList for given appointmentID 
@@ -68,7 +63,7 @@ void AppointmentService::deleteAppointment(unsigned int appointmentID) {
 }
 
 // Updates appointmentDate of appointmentID given a newDate
-void AppointmentService::updateAppointmentDate(std::time_t newDate, unsigned int appointmentID) {
+void AppointmentService::updateAppointmentDate(std::string newDate, unsigned int appointmentID) {
     for (auto appointment : appointmentList) {
         if (appointment.getAppointmentID() == appointmentID) {
             appointment.setAppointmentDate(newDate);
