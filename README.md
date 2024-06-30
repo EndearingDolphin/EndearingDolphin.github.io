@@ -14,10 +14,10 @@
 ### [The Artifact](https://github.com/EndearingDolphin/endearingdolphin.github.io/tree/main/original%20java%20project%20files)
   With all that being said, let me move onto the artifact I chose to enhance for my CS-499 capstone course. It comes from my CS-320 class, in which the final project was to create six different classes: a Contact class, ContactService class, Task class, TaskService class, Appointment class, and AppointmentService class. The project was originally written in Java.
 
-Below are links to each enhancement and their accompanying narrative.
+#### Below are links to each enhancement and their accompanying narrative.
 
-### [Enhancement One](https://github.com/EndearingDolphin/endearingdolphin.github.io/tree/main/docs/module3/apt-management-app)
+#### [Enhancement One](https://github.com/EndearingDolphin/endearingdolphin.github.io/tree/main/docs/module3/apt-management-app)
 
-### [Enhancement Two](https://github.com/EndearingDolphin/endearingdolphin.github.io/tree/main/docs/module4/apt-management-app)
+#### [Enhancement Two](https://github.com/EndearingDolphin/endearingdolphin.github.io/tree/main/docs/module4/apt-management-app)
 
-### [Enhancement Three](https://github.com/EndearingDolphin/endearingdolphin.github.io/tree/main/docs/module5/apt-management-app)
+#### [Enhancement Three](https://github.com/EndearingDolphin/endearingdolphin.github.io/tree/main/docs/module5/apt-management-app)
